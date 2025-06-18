@@ -1,19 +1,13 @@
 
-import kafka
 from scrapy.crawler import CrawlerProcess
 from linkedin_job_scraper import LinkedInJobSpider
 
-from langchain_openai import AzureChatOpenAI
-from dotenv import load_dotenv
+
 
 from kafka_producer import KafkaProducerClient
 
 
-# load environment variables from .env file
-# load_dotenv()
-# Initialize the AzureChatOpenAI model
 
-# agentScraper= AgentScraper(llm=llm)
 kafkaJobProducer = KafkaProducerClient()
 
 #  pass the scrapped jobs data to the agent company website scraper 
