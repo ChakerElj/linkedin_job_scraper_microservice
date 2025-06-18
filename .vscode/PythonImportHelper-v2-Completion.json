@@ -1,0 +1,63 @@
+[
+    {
+        "label": "KafkaProducer",
+        "importPath": "kafka",
+        "description": "kafka",
+        "isExtraImport": true,
+        "detail": "kafka",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "scrapy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "scrapy",
+        "description": "scrapy",
+        "detail": "scrapy",
+        "documentation": {}
+    },
+    {
+        "label": "urlencode",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "KafkaProducerClient",
+        "kind": 6,
+        "importPath": "src.wbe_scraper.kafka_producer",
+        "description": "src.wbe_scraper.kafka_producer",
+        "peekOfCode": "class KafkaProducerClient:\n    def __init__(self, bootstrap_servers=None):\n        if bootstrap_servers is None:\n            bootstrap_servers = os.getenv('KAFKA_BOOTSTRAP_SERVERS', 'localhost:9092')\n        logging.info(f\"Initializing Kafka producer with bootstrap servers: {bootstrap_servers}\")\n        self.producer = KafkaProducer(\n            bootstrap_servers=bootstrap_servers,\n            key_serializer= lambda k: k.encode('utf-8') if isinstance(k, str) else k,\n            value_serializer=lambda v: v.encode('utf-8') if isinstance(v, str) else v\n        )",
+        "detail": "src.wbe_scraper.kafka_producer",
+        "documentation": {}
+    },
+    {
+        "label": "LinkedInJobSpider",
+        "kind": 6,
+        "importPath": "src.wbe_scraper.linkedin_job_scraper",
+        "description": "src.wbe_scraper.linkedin_job_scraper",
+        "peekOfCode": "class LinkedInJobSpider(scrapy.Spider):\n    name = \"linkedin_job_spider\"\n    custom_settings = {\n        'DUPEFILTER_DEBUG': True\n    }\n    def __init__(self,data_callback=None, *args, **kwargs):\n        super(LinkedInJobSpider, self).__init__(*args, **kwargs)\n        self.all_collected_jobs = [] # Initialize list to store all jobs\n        self.data_callback = data_callback  # Callback to handle scraped data\n    def start_requests(self):",
+        "detail": "src.wbe_scraper.linkedin_job_scraper",
+        "documentation": {}
+    }
+]

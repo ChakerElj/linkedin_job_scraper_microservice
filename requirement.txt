@@ -1,0 +1,4 @@
+scrapy
+langchain 
+langchain_openai
+KAFKA_CLUSTERS_0_NAME

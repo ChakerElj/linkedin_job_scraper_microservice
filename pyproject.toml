@@ -1,0 +1,26 @@
+[project]
+name = "wbe-scraper"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "ChakerElj",email = "eljchaker232@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13,<4.0"
+dependencies = [
+    "scrapy (>=2.13.2,<3.0.0)",
+    "langchain (>=0.3.25,<0.4.0)",
+    "langchain-openai (>=0.3.21,<0.4.0)",
+    "python-dotenv (>=1.1.0,<2.0.0)",
+    "kafka-python-ng (>=2.2.3,<3.0.0)",
+    "scrapeops-scrapy-proxy-sdk (>=1.0,<2.0)"
+]
+
+
+[tool.poetry]
+packages = [{include = "wbe_scraper", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
